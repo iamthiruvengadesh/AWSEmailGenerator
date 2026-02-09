@@ -15,8 +15,8 @@ load_dotenv(override=True)
 @function_tool
 def getdatafrommysqlpd(query: str):
     #query='select project_name,region,date,cost from daily_usage_cost_data_by_region where date(create_datetime)=date(now())'
-    USER='root'
-    PASSWORD='my-secret-pw'
+    USER=os.getenv('MY_MYSQL_USERNAME')
+    PASSWORD=os.getenv('MY_MYSQL_PASSWORD')
     HOST='localhost'
     DBNAME='aws_billing_data'
     engine = create_engine(
@@ -194,3 +194,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+#    test()
