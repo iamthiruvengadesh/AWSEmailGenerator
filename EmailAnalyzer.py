@@ -45,8 +45,8 @@ def querymaxavailabledate() -> str:
     # Establish the connection
         conn = mysql.connector.connect(
         host="localhost",      # e.g., "localhost" or an IP address
-        user="root",  # e.g., "root"
-        password="my-secret-pw", # your MySQL password
+        user=os.getenv('MY_MYSQL_USERNAME'),  # e.g., "root"
+        password=os.getenv('MY_MYSQL_PASSWORD'), # your MySQL password
         database="aws_billing_data"  # the database name
     )
 
